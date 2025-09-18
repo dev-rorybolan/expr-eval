@@ -7,7 +7,7 @@ public class Tokenizer {
         str = str.replace(" ", "");
         char[] strCharArray = str.toCharArray();
         ArrayList<Token> token_list = new ArrayList<>();
-        char[] allowed = {'0','1','2','3','4','5','6','7','8','9','+','-','/','*','%'};
+
         for (char character : strCharArray) {
             if (isIllegalCharacter(character)) throw new Exception("Illegal character: " + character);
             switch (character) {
@@ -43,7 +43,7 @@ public class Tokenizer {
         return token_list;
     }
     public static boolean isIllegalCharacter(char ch)  {
-        boolean found = false;
+
         char[] allowed = {'0','1','2','3','4','5','6','7','8','9','+','-','/','*','%'};
         for (char cha : allowed) {
             if (ch == cha) {

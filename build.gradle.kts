@@ -5,7 +5,11 @@ plugins {
 
 group = "app.belgarion.tech.expr_eval"
 version = "1.0-SNAPSHOT"
-
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "app.belgarion.tech.expr_eval.Main" // <-- your main class here
+    }
+}
 repositories {
     mavenCentral()
 }
@@ -21,4 +25,7 @@ tasks.test {
 }
 application {
     mainClass.set("app.belgarion.tech.expr_eval.Main")
+}
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
